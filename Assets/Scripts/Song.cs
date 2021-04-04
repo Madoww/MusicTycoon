@@ -1,0 +1,26 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum SongType
+{
+    beat = 0,
+    song
+}
+
+[System.Serializable]
+public class Song
+{
+    public int QualityIndex
+    {
+        set { qualityIndex = value; }
+        get => qualityIndex;
+    }
+
+    public string name;
+    public SongGenre genre;
+    public SongType type;
+    public int hoursSpentProducing;
+
+    public int qualityIndex;
+}
