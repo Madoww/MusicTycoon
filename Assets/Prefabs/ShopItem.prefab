@@ -218,9 +218,8 @@ GameObject:
   - component: {fileID: 8492787063697278752}
   - component: {fileID: 937528505441956603}
   - component: {fileID: 7570955920623609525}
-  - component: {fileID: 3111760450274931244}
-  - component: {fileID: 2900544830255088082}
   - component: {fileID: 1873181664042720756}
+  - component: {fileID: 2900544830255088082}
   m_Layer: 5
   m_Name: ShopItem
   m_TagString: Untagged
@@ -287,7 +286,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3111760450274931244
+--- !u!114 &1873181664042720756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,11 +295,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5418416472323313746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87f8d89ab3878745bb86e448640d098, type: 3}
+  m_Script: {fileID: 11500000, guid: 48d70551260e648488b2c9140ec5cdba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: {fileID: 4362479362256569987}
   type: 0
+  priceText: {fileID: 1433330148292921940}
 --- !u!114 &2900544830255088082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1873181664042720756}
-        m_MethodName: Purchase
+        m_MethodName: DisplayPurchaseConfirmation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -355,20 +355,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1873181664042720756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5418416472323313746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d70551260e648488b2c9140ec5cdba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiItem: {fileID: 3111760450274931244}
-  priceText: {fileID: 1433330148292921940}
 --- !u!1 &7519809300201558116
 GameObject:
   m_ObjectHideFlags: 0

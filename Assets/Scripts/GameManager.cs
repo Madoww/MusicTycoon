@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>
     public int MoneyAmount
     {
         get => moneyAmount;
-        private set { }
+        set { moneyAmount = value; }
     }
 
 
@@ -22,5 +22,5 @@ public class GameManager : Singleton<GameManager>
 
     public List<Song> songs;
 
-    private int moneyAmount;
+    private int moneyAmount = 1000;
 }

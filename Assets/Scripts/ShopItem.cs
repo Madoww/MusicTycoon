@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ShopItem : MonoBehaviour
+public class ShopItem : UIItem
 {
-    public UIItem uiItem;
     public TextMeshProUGUI priceText;
 
-    public void Purchase()
+    public void DisplayPurchaseConfirmation()
     {
-        InventoryManager.Instance.AddItem(uiItem.name.text);
+        ShopPanel.Instance.DisplayConfirmationPanel(this);
     }
 }

@@ -4,11 +4,12 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class ShopPanel : MonoBehaviour
+public class ShopPanel : Singleton<ShopPanel>
 {
     [SerializeField] private ShopItem shopItemPrefab;
     [SerializeField] private GameObject shopListRoot;
     [SerializeField] private TMP_Dropdown filter;
+    [SerializeField] private ConfirmPurchasePanel confirmPurchasePanel;
 
     private void OnEnable()
     {
@@ -21,7 +22,7 @@ public class ShopPanel : MonoBehaviour
         foreach(Item item in InventoryManager.Instance.allAvailableItems)
         {
             ShopItem shopItem = Instantiate(shopItemPrefab, shopListRoot.transform);
-            shopItem.uiItem.name.SetText(item.name);
+            shopItem.name.SetText(item.name);
             shopItem.priceText.SetText(item.price.ToString());
         }
     }
@@ -36,9 +37,14 @@ public class ShopPanel : MonoBehaviour
             if (item.type != selectedType)
                 continue;
             ShopItem shopItem = Instantiate(shopItemPrefab, shopListRoot.transform);
-            shopItem.uiItem.name.SetText(item.name);
+            shopItem.name.SetText(item.name);
             shopItem.priceText.SetText(item.price.ToString());
         }
+    }
+
+    public void DisplayConfirmationPanel(ShopItem purchasedItem)
+    {
+        confirmPurchasePanel.DisplayConfirmationPanel(purchasedItem);
     }
 
     private void ResetList()

@@ -21,15 +21,20 @@ public class ItemSelectionPanel : MonoBehaviour
         }
     }
 
+    public void Close()
+    {
+        foreach (Transform child in itemListRoot.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            foreach (Transform child in itemListRoot.transform)
-            {
-                Destroy(child.gameObject);
-            }
-            gameObject.SetActive(false);
+            Close();
         }
     }
 }
