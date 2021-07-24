@@ -5,9 +5,18 @@ using UnityEngine.EventSystems;
 
 public class ActionMenu : Singleton<ActionMenu>, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] private List<UIButton> buttons = new List<UIButton>();
     [SerializeField] private GameObject menu;
 
     private bool mouseInContact = false;
+
+    private void Start()
+    {
+        foreach(UIButton button in buttons)
+        {
+            button.onClick += Close;
+        }
+    }
 
     private void Update()
     {
@@ -30,5 +39,10 @@ public class ActionMenu : Singleton<ActionMenu>, IPointerEnterHandler, IPointerE
     public void OnPointerExit(PointerEventData eventData)
     {
         mouseInContact = false;
+    }
+
+    public void Close()
+    {
+        menu.gameObject.SetActive(false);
     }
 }

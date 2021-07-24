@@ -17,6 +17,6 @@ public class Item : ScriptableObject
     public new string name;
     public ItemType type;
     public Image icon;
-    public int qualityBoost;
+    public float qualityMultiplier;
     public int price;
 }

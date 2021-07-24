@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private List<GameObject> panels = new List<GameObject>();
     public int MoneyAmount
     {
         get => moneyAmount;
         set { moneyAmount = value; }
-    }
-
-
-    public void DisableAllPanels()
-    {
-        foreach(GameObject panel in panels)
-        {
-            panel.SetActive(false);
-        }
     }
 
     public List<Song> songs;

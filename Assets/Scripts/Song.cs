@@ -11,7 +11,7 @@ public enum SongType
 [System.Serializable]
 public class Song
 {
-    public int QualityIndex
+    public float QualityIndex
     {
         set { qualityIndex = value; }
         get => qualityIndex;
@@ -22,5 +22,5 @@ public class Song
     public SongType type;
     public int hoursSpentProducing;
 
-    public int qualityIndex;
+    public float qualityIndex;
 }

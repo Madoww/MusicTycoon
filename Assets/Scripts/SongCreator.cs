@@ -42,7 +42,7 @@ public class SongCreator : MonoBehaviour
     {
         song = new Song();
         UpdateInfo();
-        song.QualityIndex = CalculateSongQualityIndex();
+        song.QualityIndex = CalculateSongQualityIndex2();
         GameManager.Instance.songs.Add(song);
     }
 
@@ -62,9 +62,9 @@ public class SongCreator : MonoBehaviour
         }
     }*/
 
-    private int CalculateSongQualityIndex()
+    private float CalculateSongQualityIndex()
     {
-        int quality = 0;
+        float quality = 0;
         float expectedBeatToVocalsRatio = ((float)song.genre.beatImportance / 100);
 
         if(song.type == SongType.beat)
@@ -80,7 +80,7 @@ public class SongCreator : MonoBehaviour
             float ratioDifference = Mathf.Abs(expectedBeatToVocalsRatio - beatToVocalsRatio);
 
             Debug.Log("Original: " + (beatHours * song.genre.beatImportance + vocalsHours * (100 - song.genre.beatImportance)) + ", Divided by: " + ratioDifference);
-            quality = (int)((float)(beatHours * song.genre.beatImportance + vocalsHours * (100-song.genre.beatImportance)) / Mathf.Max(ratioDifference,0.1f));
+            quality = (int)((float)(beatHours * song.genre.beatImportance + vocalsHours * (100-song.genre.beatImportance)));
             //quality = (beatHours * song.genre.beatImportance * GetBoost(ItemType.keyboard) * GetBoost(ItemType.headphones) * GetBoost(ItemType.software)) + (vocalsHours * (100 - song.genre.beatImportance) * GetBoost(ItemType.microphone));
         }
 
@@ -89,8 +89,26 @@ public class SongCreator : MonoBehaviour
         return quality;
     }
 
-    private int GetBoost(ItemType type)
+    private int CalculateSongQualityIndex2()
     {
-        return InventoryManager.Instance.GetActiveItem(type) ? InventoryManager.Instance.GetActiveItem(type).qualityBoost : 1;
+        int quality = 0;
+
+        float expectedBeatHours = hoursTotal * ((float)song.genre.beatImportance / 100f);
+        float ratio = Mathf.Abs(beatHours - expectedBeatHours)/expectedBeatHours;
+
+        if(song.type == SongType.song)
+        {
+            float beatQuality = beatHours * (1-ratio) * GetBoost(ItemType.keyboard);
+            float vocalsQuality = vocalsHours * (1 - ratio) * GetBoost(ItemType.microphone);
+            Debug.Log("Beat: " + beatQuality + ", vocals " + vocalsQuality);
+            Debug.Log("Total: " + (beatQuality + vocalsQuality));
+        }
+
+        return 0;
+    }
+
+    private float GetBoost(ItemType type)
+    {
+        return InventoryManager.Instance.GetActiveItem(type) ? InventoryManager.Instance.GetActiveItem(type).qualityMultiplier : 1;
     }
 }
