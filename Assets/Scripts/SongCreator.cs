@@ -89,22 +89,38 @@ public class SongCreator : MonoBehaviour
         return quality;
     }
 
-    private int CalculateSongQualityIndex2()
+    private float CalculateSongQualityIndex2()
     {
-        int quality = 0;
+        float quality = 0;
 
         float expectedBeatHours = hoursTotal * ((float)song.genre.beatImportance / 100f);
-        float ratio = Mathf.Abs(beatHours - expectedBeatHours)/expectedBeatHours;
+        float expectedVocalHours = hoursTotal * ((float)(100f - song.genre.beatImportance) / 100f);
+
+        float ratio = 0;
+
+        if (song.genre.beatImportance > 50)
+        {
+            ratio = Mathf.Abs(beatHours - expectedBeatHours) / expectedBeatHours;
+        }
+        else
+        {
+            ratio = Mathf.Abs(vocalsHours - expectedVocalHours) / expectedVocalHours;
+        }
+        
+        
 
         if(song.type == SongType.song)
         {
-            float beatQuality = beatHours * (1-ratio) * GetBoost(ItemType.keyboard);
-            float vocalsQuality = vocalsHours * (1 - ratio) * GetBoost(ItemType.microphone);
+            float actualRatio = 1 - ratio > 0 ? 1 - ratio : 0;
+            float beatQuality = beatHours * actualRatio * GetBoost(ItemType.keyboard);
+            float vocalsQuality = vocalsHours * actualRatio * GetBoost(ItemType.microphone);
+            Debug.Log("Ratio: " + ratio);
             Debug.Log("Beat: " + beatQuality + ", vocals " + vocalsQuality);
-            Debug.Log("Total: " + (beatQuality + vocalsQuality));
+            quality = Mathf.Pow(beatQuality + vocalsQuality, 2) / 100f;
+            Debug.Log("Total: " + quality);
         }
 
-        return 0;
+        return quality;
     }
 
     private float GetBoost(ItemType type)
