@@ -17,6 +17,7 @@ public class ItemSelectionPanel : MonoBehaviour
                 UIItem uiItem = Instantiate(itemPrefab, itemListRoot.transform);
                 uiItem.type = type;
                 uiItem.name.text = item.name;
+                uiItem.button.onClick += Close;
             }
         }
     }

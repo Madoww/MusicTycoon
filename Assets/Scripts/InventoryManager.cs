@@ -7,7 +7,7 @@ public class InventoryManager : Singleton<InventoryManager>
     public List<Item> ownedItems = new List<Item>();
     public List<Item> allAvailableItems = new List<Item>();
     public List<Item> activeItems = new List<Item>();
-    public List<UIItem> activeItemsUI = new List<UIItem>();
+    public List<UIInventoryListElement> activeItemsUI = new List<UIInventoryListElement>();
     public ItemSelectionPanel itemSelectionPanel;
 
     private void Start()
@@ -72,11 +72,11 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void UpdateUI(Item updatedItem)
     {
-        foreach (UIItem itemUI in activeItemsUI)
+        foreach (UIInventoryListElement inventoryListElement in activeItemsUI)
         {
-            if (updatedItem.type == itemUI.type)
+            if (updatedItem.type == inventoryListElement.Type)
             {
-                itemUI.name.SetText(updatedItem.name);
+                inventoryListElement.TMPName.SetText(updatedItem.name);
                 return;
             }
         }

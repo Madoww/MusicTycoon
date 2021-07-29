@@ -218,10 +218,11 @@ GameObject:
   - component: {fileID: 7028178519840747485}
   - component: {fileID: 1826120327877188102}
   - component: {fileID: 9026370039296544328}
-  - component: {fileID: 4574067681948981969}
+  - component: {fileID: -6109649249135879181}
   - component: {fileID: 4329548937341282607}
+  - component: {fileID: -6441604829016145486}
   m_Layer: 5
-  m_Name: Item
+  m_Name: InventoryItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4574067681948981969
+--- !u!114 &-6109649249135879181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,11 +295,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6874602877619419311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87f8d89ab3878745bb86e448640d098, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fab73bd7d930f948b1dfd810021f586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: {fileID: 2945292772070944382}
   type: 0
+  button: {fileID: -6441604829016145486}
 --- !u!114 &4329548937341282607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,15 +343,17 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9026370039296544328}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4574067681948981969}
-        m_MethodName: SetSelfAsActiveItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &-6441604829016145486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6874602877619419311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9424806965f2a4686ab34db5212f0a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 4329548937341282607}

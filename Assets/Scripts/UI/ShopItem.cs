@@ -7,6 +7,11 @@ public class ShopItem : UIItem
 {
     public TextMeshProUGUI priceText;
 
+    private void Awake()
+    {
+        button.onClick += DisplayPurchaseConfirmation;
+    }
+
     public void DisplayPurchaseConfirmation()
     {
         ShopPanel.Instance.DisplayConfirmationPanel(this);

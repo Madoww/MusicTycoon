@@ -7,6 +7,13 @@ public class ConfirmPurchasePanel : MonoBehaviour
 {
     public ShopItem displayedItem;
 
+    [SerializeField] private UIButton confirmPurchaseButton;
+
+    private void Awake()
+    {
+        confirmPurchaseButton.onClick += AttemptToPurchase;
+    }
+
     public void DisplayConfirmationPanel(ShopItem itemToConfirm)
     {
         gameObject.SetActive(true);
@@ -20,6 +27,7 @@ public class ConfirmPurchasePanel : MonoBehaviour
         {
             GameManager.Instance.MoneyAmount -= int.Parse(displayedItem.priceText.text);
             InventoryManager.Instance.AddItem(displayedItem.name.text);
+            gameObject.SetActive(false);
         }
     }
 }
