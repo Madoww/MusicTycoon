@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Rode NT-1 Mini
   type: 0
   icon: {fileID: 0}
-  qualityBoost: 1
+  qualityMultiplier: 1.2
   price: 477

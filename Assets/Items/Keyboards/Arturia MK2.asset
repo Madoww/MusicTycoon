@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Arturia Minilab mk 2
   type: 1
   icon: {fileID: 0}
-  qualityBoost: 8
+  qualityMultiplier: 1.05
   price: 12

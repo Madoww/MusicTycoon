@@ -15,5 +15,5 @@ MonoBehaviour:
   name: MDRILL ONE PRO
   type: 0
   icon: {fileID: 0}
-  qualityBoost: 1
+  qualityMultiplier: 1.1
   price: 233
