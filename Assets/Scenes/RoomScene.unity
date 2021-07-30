@@ -1798,8 +1798,9 @@ GameObject:
   - component: {fileID: 231521946}
   - component: {fileID: 231521945}
   - component: {fileID: 231521944}
+  - component: {fileID: 231521947}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ConfirmPurchaseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1867,29 +1868,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 231521945}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 894837817}
-        m_MethodName: AttemptToPurchase
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 894837815}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &231521945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1927,6 +1906,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231521942}
   m_CullTransparentMesh: 0
+--- !u!114 &231521947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231521942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9424806965f2a4686ab34db5212f0a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 231521944}
 --- !u!1 &237317457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,6 +3237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965245604967419122, guid: 8614179f27a33cb40b803804925dc8bb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7443933361267811537, guid: 8614179f27a33cb40b803804925dc8bb,
         type: 3}
@@ -5789,6 +5786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayedItem: {fileID: 954879614}
+  confirmPurchaseButton: {fileID: 231521947}
 --- !u!114 &894837818
 MonoBehaviour:
   m_ObjectHideFlags: 0
