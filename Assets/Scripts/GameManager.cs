@@ -10,7 +10,5 @@ public class GameManager : Singleton<GameManager>
         set { moneyAmount = value; }
     }
 
-    public List<Song> songs;
-
     private int moneyAmount = 1000;
 }

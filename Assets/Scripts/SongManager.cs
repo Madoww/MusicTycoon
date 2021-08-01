@@ -6,7 +6,10 @@ using System.Text.RegularExpressions;
 
 public class SongManager : Singleton<SongManager>
 {
+    public List<Song> songs;
     public List<SongGenre> songGenres = new List<SongGenre>();
+
+    public event Action OnUpload;
 
     public SongGenre GetGenreOfName(string name)
     {
@@ -19,5 +22,11 @@ public class SongManager : Singleton<SongManager>
             }
         }
         return null;
+    }
+
+    public void Upload(Song song)
+    {
+        song.wasUploaded = true;
+        OnUpload.Invoke();
     }
 }

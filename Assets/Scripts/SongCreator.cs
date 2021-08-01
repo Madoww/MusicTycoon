@@ -62,7 +62,7 @@ public class SongCreator
     public void Create()
     {
         tempSong.QualityIndex = CalculateSongQualityIndex2();
-        GameManager.Instance.songs.Add(tempSong);
+        SongManager.Instance.songs.Add(tempSong);
     }
 
     /*private int CalculateSongQualityIndex()

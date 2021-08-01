@@ -21,6 +21,10 @@ public class Song
     public SongGenre genre;
     public SongType type;
     public int hoursSpentProducing;
-
     public float qualityIndex;
+
+    public bool wasUploaded;
+    public int plays;
+    public int likes;
+    public int dislikes;
 }
